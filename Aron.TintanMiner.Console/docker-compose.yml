@@ -1,7 +1,7 @@
 version: '1.0'
 
 services:
-  aron-titan-edge:
+  aron-titan-edge1:
     image: aron666/aron-titan-edge
     container_name: aron-titan-edge
     environment:
@@ -12,6 +12,11 @@ services:
       - AppConfig__TITAN_EDGE_ID=26DA6097-BAFC-45A5-8B08-A6DC441AE2E7
       - AppConfig__TITAN_CPU_CORES=1
       - AppConfig__TITAN_MEMORY_MEMORYGB=1
+ 
+        # 此參數設定為true可解決浮動IP問題
+        # 程式結束時，刪除Storage的檔案。
+        # 請注意多次刪除可能導致無法綁定(一個IP 10個設備)
+      - AppConfig__DELETE_STORAGE_AFTER_EXIT=false
     #volumes:
       #- hostPath:/root/.titanedge
 

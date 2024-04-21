@@ -21,5 +21,12 @@ namespace Aron.TintanMiner.Console.Models
         public int? TITAN_CPU_CORES { get; set; } = 1;
 
         public int? TITAN_MEMORY_MEMORYGB { get; set; } = 1;
+
+        /// <summary>
+        /// 此參數設定為true可解決浮動IP問題
+        /// 程式結束時，刪除Storage的檔案。
+        /// 請注意多次刪除可能導致無法綁定(一個IP 10個設備)
+        /// </summary>
+        public bool DELETE_STORAGE_AFTER_EXIT { get; set; } = false;
     }
 }
