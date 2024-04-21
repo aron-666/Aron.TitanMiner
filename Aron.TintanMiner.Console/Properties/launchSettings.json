@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Aron.TintanMiner.Console": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AppConfig__TITAN_STORAGE_STORAGEGB": "100"
+      }
+    }
+  }
+}
