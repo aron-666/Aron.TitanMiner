@@ -8,7 +8,7 @@
 
 另有Grass: https://github.com/aron-666/Aron.GrassMiner
 
-![下載](https://nextcloud.aronhome.com/s/APmcf8fgW36787y)
+[下載](https://nextcloud.aronhome.com/s/APmcf8fgW36787y)
 
 ```
 //改appsettings.json
