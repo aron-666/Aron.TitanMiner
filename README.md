@@ -6,9 +6,11 @@
 使用我的推薦碼註冊: https://test1.titannet.io/intiveRegister?code=NFPbBo
 另有Grass: https://github.com/aron-666/Aron.GrassMiner
 
-改appsettings.json
+```
+//改appsettings.json
 chmod +x Aron.TintanMiner.Console
 chmod -R +x ./titan
 
-執行(root):
+//執行(root):
 ./Aron.TintanMiner.Console
+```
