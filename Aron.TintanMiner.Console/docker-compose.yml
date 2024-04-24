@@ -3,23 +3,55 @@ version: '1.0'
 services:
   aron-titan-edge1:
     image: aron666/aron-titan-edge
-    container_name: aron-titan-edge
+    container_name: aron-titan-edge1
     environment:
       - AppConfig__TITAN_NETWORK_LOCATORURL=https://test-locator.titannet.io:5000/rpc/v0
-      - AppConfig__TITAN_STORAGE_STORAGEGB=100
-      - AppConfig__TITAN_STORAGE_PATH=
+      - AppConfig__TITAN_STORAGE_STORAGEGB=100 #佔用空間，這是100G
       - AppConfig__TITAN_EDGE_BINDING_URL=https://api-test1.container1.titannet.io/api/v2/device/binding
-      - AppConfig__TITAN_EDGE_ID=26DA6097-BAFC-45A5-8B08-A6DC441AE2E7
-      - AppConfig__TITAN_CPU_CORES=1
-      - AppConfig__TITAN_MEMORY_MEMORYGB=1
- 
-        # 此參數設定為true可解決浮動IP問題
-        # 程式結束時，刪除Storage的檔案。
-        # 請注意多次刪除可能導致無法綁定(一個IP 10個設備)
-      - AppConfig__DELETE_STORAGE_AFTER_EXIT=false
-    #volumes:
-      #- hostPath:/root/.titanedge
+      - AppConfig__TITAN_EDGE_ID=你的ID
+    volumes:
+      - 資料夾路徑1:/root/.titanedge
 
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  aron-titan-edge2:
+    image: aron666/aron-titan-edge
+    container_name: aron-titan-edge2
+    environment:
+      - AppConfig__TITAN_NETWORK_LOCATORURL=https://test-locator.titannet.io:5000/rpc/v0
+      - AppConfig__TITAN_STORAGE_STORAGEGB=100 #佔用空間，這是100G
+      - AppConfig__TITAN_EDGE_BINDING_URL=https://api-test1.container1.titannet.io/api/v2/device/binding
+      - AppConfig__TITAN_EDGE_ID=你的ID
+    volumes:
+      - 資料夾路徑2:/root/.titanedge
+
+  aron-titan-edge3:
+    image: aron666/aron-titan-edge
+    container_name: aron-titan-edge3
+    environment:
+      - AppConfig__TITAN_NETWORK_LOCATORURL=https://test-locator.titannet.io:5000/rpc/v0
+      - AppConfig__TITAN_STORAGE_STORAGEGB=100 #佔用空間，這是100G
+      - AppConfig__TITAN_EDGE_BINDING_URL=https://api-test1.container1.titannet.io/api/v2/device/binding
+      - AppConfig__TITAN_EDGE_ID=你的ID
+    volumes:
+      - 資料夾路徑3:/root/.titanedge
+
+  aron-titan-edge4:
+    image: aron666/aron-titan-edge
+    container_name: aron-titan-edge4
+    environment:
+      - AppConfig__TITAN_NETWORK_LOCATORURL=https://test-locator.titannet.io:5000/rpc/v0
+      - AppConfig__TITAN_STORAGE_STORAGEGB=100 #佔用空間，這是100G
+      - AppConfig__TITAN_EDGE_BINDING_URL=https://api-test1.container1.titannet.io/api/v2/device/binding
+      - AppConfig__TITAN_EDGE_ID=你的ID
+    volumes:
+      - 資料夾路徑4:/root/.titanedge
+
+  aron-titan-edge5:
+    image: aron666/aron-titan-edge
+    container_name: aron-titan-edge5
+    environment:
+      - AppConfig__TITAN_NETWORK_LOCATORURL=https://test-locator.titannet.io:5000/rpc/v0
+      - AppConfig__TITAN_STORAGE_STORAGEGB=100 #佔用空間，這是100G
+      - AppConfig__TITAN_EDGE_BINDING_URL=https://api-test1.container1.titannet.io/api/v2/device/binding
+      - AppConfig__TITAN_EDGE_ID=你的ID
+    volumes:
+      - 資料夾路徑5:/root/.titanedge

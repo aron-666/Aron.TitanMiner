@@ -3,8 +3,7 @@
     "Aron.TintanMiner.Console": {
       "commandName": "Project",
       "environmentVariables": {
-        "AppConfig__TITAN_STORAGE_STORAGEGB": "100",
-        "AppConfig__DELETE_STORAGE_AFTER_EXIT": "true"
+        "AppConfig__TITAN_STORAGE_STORAGEGB": "100"
       }
     }
   }

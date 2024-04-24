@@ -41,31 +41,26 @@ namespace Aron.TintanMiner.Console
                 {
                     process = Run($"daemon start --init --url {appConfig.TITAN_NETWORK_LOCATORURL}");
                     process.WaitForExit();
-                    System.Console.WriteLine("Exit Code: " + process.ExitCode); 
 
-                    if(appConfig.DELETE_STORAGE_AFTER_EXIT)
+                    Thread.Sleep(5000);
+                    System.Console.WriteLine("Exit Code: " + process.ExitCode);
+
+                    if (appConfig.DELETE_STORAGE_AFTER_EXIT)
                     {
-                        string directoryPath = appConfig.TITAN_STORAGE_PATH;
-                        // 检查目录是否存在
-                        if (Directory.Exists(directoryPath))
+                        string command = $"rm -rf \"{Path.Combine(appConfig.TITAN_STORAGE_PATH, "*")}\"";
+                        ProcessStartInfo startInfo = new ProcessStartInfo
                         {
-                            // 获取目录中所有文件
-                            string[] files = Directory.GetFiles(directoryPath);
-
-                            // 删除每个文件
-                            foreach (string file in files)
-                            {
-                                try
-                                {
-                                    File.Delete(file);
-                                    System.Console.WriteLine($"Delete file: {file}");
-                                }
-                                catch (System.Exception)
-                                {
-                                }
-                            }
-
-                        }
+                            FileName = "/bin/bash",
+                            Arguments = $"-c \"{command}\"",
+                            RedirectStandardOutput = false,
+                            RedirectStandardError = false,
+                            UseShellExecute = false,
+                            CreateNoWindow = true
+                        };
+                        Process process = Process.Start(startInfo);
+                        System.Console.WriteLine(startInfo.Arguments);
+                        process.WaitForExit();
+                        process.Dispose();
 
                     }
                 });
@@ -89,6 +84,7 @@ namespace Aron.TintanMiner.Console
             {
                 //process = Run("daemon stop");
                 process?.Kill();
+                process?.Dispose();
             }
             
             
